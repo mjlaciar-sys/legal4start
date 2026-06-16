@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal4Start — María José Laciar</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --dark:   #0B2E3A;
+  --main:   #0E5C6B;
+  --mint:   #14B8A6;
+  --blue:   #F97316;
+  --light:  #FB923C;
+  --pale:   #F0FDFA;
+  --sky:    #FFF7ED;
+  --white:  #FFFFFF;
+  --text:   #0B2E3A;
+  --muted:  #4A7A80;
+  --border: #99F6E4;
+  --border2:#FED7AA;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#fff;
+  color:var(--text);
+  font-size:15px;
+  line-height:1.65;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:0.5px solid var(--border);
+  padding:0 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  height:62px;
+}
+
+.nav-logo{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:16px;font-weight:800;
+  letter-spacing:0.06em;
+  color:var(--dark);
+  text-decoration:none;
+}
+.nav-logo em{color:var(--mint);font-style:normal;}
+
+.nav-links{display:flex;gap:2px;}
+.nav-links a{
+  font-size:13px;font-weight:500;
+  color:var(--muted);
+  text-decoration:none;
+  padding:6px 14px;
+  border-radius:20px;
+  transition:all .2s;
+}
+.nav-links a:hover{color:var(--main);background:var(--pale);}
+
+.nav-cta{
+  background:var(--mint);
+  color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:12px;font-weight:700;
+  letter-spacing:0.04em;
+  padding:9px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--main);}
+
+/* ── HERO ── */
+#inicio{
+  min-height:100vh;
+  padding:110px 5% 80px;
+  background:var(--dark);
+  position:relative;
+  overflow:hidden;
+  display:flex;align-items:center;
+}
+
+.hero-bg-shape{
+  position:absolute;border-radius:50%;
+}
+.hbs1{width:520px;height:520px;top:-140px;right:-100px;background:radial-gradient(circle,rgba(43,191,160,0.13) 0%,transparent 70%);}
+.hbs2{width:320px;height:320px;bottom:-80px;left:8%;background:radial-gradient(circle,rgba(62,159,208,0.1) 0%,transparent 70%);}
+.hbs3{width:180px;height:180px;top:30%;right:18%;border:30px solid rgba(43,191,160,0.07);background:transparent;}
+
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1100px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;
+}
+
+.hero-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--mint);
+  margin-bottom:18px;
+}
+
+.hero-headline{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(36px,5vw,58px);
+  font-weight:800;color:#fff;
+  line-height:1.05;letter-spacing:-0.025em;
+  margin-bottom:22px;
+}
+.hero-headline .hl{color:var(--mint);}
+.hero-headline .hl2{color:var(--light);}
+
+.hero-sub{
+  font-size:16px;font-weight:300;
+  color:rgba(255,255,255,0.6);
+  line-height:1.75;max-width:460px;
+  margin-bottom:36px;
+}
+
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
+.pill{
+  font-size:11.5px;padding:5px 14px;border-radius:20px;
+  border:0.5px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.55);
+}
+.pill.accent{
+  background:rgba(43,191,160,0.15);
+  border-color:rgba(43,191,160,0.4);
+  color:var(--light);
+}
+
+.hero-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--mint);color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:0.04em;padding:13px 26px;border-radius:10px;
+  text-decoration:none;transition:background .2s;
+}
+.hero-btn:hover{background:var(--main);}
+
+.hero-card{
+  background:rgba(255,255,255,0.05);
+  border:0.5px solid rgba(255,255,255,0.1);
+  border-radius:16px;padding:28px;
+  backdrop-filter:blur(8px);
+}
+.hcard-label{
+  font-size:10px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--light);margin-bottom:16px;
+}
+.hcard-stat{
+  display:flex;align-items:baseline;gap:6px;margin-bottom:6px;
+}
+.stat-num{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:800;
+  color:#fff;line-height:1;
+}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.45);}
+.hcard-divider{
+  height:0.5px;background:rgba(255,255,255,0.08);
+  margin:16px 0;
+}
+.hcard-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;color:rgba(255,255,255,0.5);
+  margin-bottom:8px;
+}
+.hcard-item::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--mint);flex-shrink:0;
+}
+
+/* ── SECCIONES COMUNES ── */
+.section{
+  padding:88px 5%;
+  border-bottom:0.5px solid var(--border);
+}
+.section.alt{background:var(--pale);}
+
+.section-inner{max-width:1100px;margin:0 auto;}
+
+.sec-label{
+  font-size:10px;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--mint);margin-bottom:8px;
+}
+.sec-title{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(26px,3.5vw,36px);
+  font-weight:800;color:var(--dark);
+  line-height:1.15;letter-spacing:-0.02em;
+  margin-bottom:14px;
+}
+.sec-intro{
+  font-size:15px;color:var(--muted);
+  max-width:560px;line-height:1.75;
+  margin-bottom:48px;
+}
+
+/* ── QUÉ HACE ── */
+.quehace-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.qh-card{
+  border-radius:14px;padding:28px 26px;
+  border:0.5px solid var(--border);
+  background:#fff;
+  position:relative;overflow:hidden;
+  transition:box-shadow .2s,transform .2s;
+}
+.qh-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(29,122,107,0.1);}
+.qh-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--mint);
+  border-radius:14px 14px 0 0;
+}
+.qh-card.blue::before{background:var(--blue);}
+.qh-card.dark::before{background:var(--dark);}
+.qh-card.dual::before{background:linear-gradient(90deg,var(--mint),var(--blue));}
+
+.qh-icon{
+  font-size:26px;margin-bottom:14px;
+  width:46px;height:46px;border-radius:10px;
+  background:var(--pale);display:flex;align-items:center;justify-content:center;
+}
+.qh-card.blue .qh-icon{background:var(--sky);}
+.qh-card.dark .qh-icon{background:rgba(26,61,79,0.07);}
+
+.qh-name{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;font-weight:700;color:var(--dark);
+  margin-bottom:7px;
+}
+.qh-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:12px;}
+.qh-items{display:flex;flex-direction:column;gap:4px;}
+.qh-item{
+  font-size:12px;color:#3A5A66;
+  display:flex;gap:7px;align-items:flex-start;
+}
+.qh-item::before{
+  content:'→';color:var(--mint);font-size:10px;
+  margin-top:3px;flex-shrink:0;
+}
+.qh-card.blue .qh-item::before{color:var(--blue);}
+.qh-card.dark .qh-item::before{color:var(--dark);}
+
+/* ── PARA QUIÉN ── */
+.pq-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.pq-card{
+  border-radius:14px;padding:28px 22px;
+  background:var(--dark);
+  position:relative;overflow:hidden;
+}
+.pq-card::after{
+  content:'';position:absolute;
+  bottom:-24px;right:-24px;
+  width:90px;height:90px;border-radius:50%;
+  background:rgba(43,191,160,0.08);
+}
+.pq-num{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:800;
+  color:rgba(43,191,160,0.18);line-height:1;margin-bottom:10px;
+}
+.pq-title{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;
+  color:#fff;margin-bottom:8px;
+}
+.pq-desc{font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.65;}
+
+/* ── PROCESO ── */
+.proceso-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  position:relative;
+}
+.proceso-steps::before{
+  content:'';position:absolute;
+  top:36px;left:calc(12.5% + 18px);right:calc(12.5% + 18px);
+  height:1px;background:linear-gradient(90deg,var(--mint),var(--blue));
+  z-index:0;
+}
+.paso{
+  position:relative;z-index:1;
+  text-align:center;padding:0 16px;
+}
+.paso-num{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--dark);
+  border:2px solid var(--mint);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--mint);
+}
+.paso:nth-child(even) .paso-num{border-color:var(--blue);color:var(--blue);}
+.paso-title{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;
+  color:var(--dark);margin-bottom:6px;
+}
+.paso-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+
+/* ── CONTACTO ── */
+#contacto{
+  background:var(--dark);
+  padding:88px 5%;
+}
+.cta-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.cta-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--mint);margin-bottom:12px;
+}
+.cta-headline{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:clamp(28px,3.5vw,40px);
+  font-weight:800;color:#fff;
+  line-height:1.12;letter-spacing:-0.02em;
+  margin-bottom:12px;
+}
+.cta-headline .hl{color:var(--light);}
+.cta-sub{font-size:15px;color:rgba(255,255,255,0.45);line-height:1.7;}
+
+.cta-box{
+  background:rgba(255,255,255,0.05);
+  border:0.5px solid rgba(255,255,255,0.1);
+  border-radius:16px;padding:36px;
+}
+.cta-contact-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 0;
+  border-bottom:0.5px solid rgba(255,255,255,0.07);
+}
+.cta-contact-item:last-of-type{border-bottom:none;padding-bottom:0;}
+.cta-icon{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(43,191,160,0.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;margin-top:1px;
+}
+.cta-contact-label{font-size:11px;color:rgba(255,255,255,0.35);margin-bottom:2px;}
+.cta-contact-value{
+  font-size:14px;font-weight:500;color:#fff;
+  text-decoration:none;
+}
+.cta-contact-value:hover{color:var(--light);}
+.cta-btn-wrap{margin-top:24px;}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--mint);color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:0.04em;padding:14px 28px;border-radius:10px;
+  text-decoration:none;transition:background .2s;width:100%;
+  justify-content:center;
+}
+.cta-btn:hover{background:var(--main);}
+
+/* ── FOOTER ── */
+footer{
+  background:#0F2633;
+  padding:20px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:0.08em;color:rgba(255,255,255,0.35);
+}
+.footer-logo em{color:var(--mint);font-style:normal;}
+.footer-tagline{font-size:11.5px;color:rgba(255,255,255,0.25);}
+
+/* ── PRINT ── */
+@media print{
+  nav{display:none;}
+  body{font-size:12px;}
+  #inicio{min-height:auto;padding:48px 5% 40px;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-card{display:none;}
+  .section{padding:40px 5%;}
+  .quehace-grid{grid-template-columns:1fr 1fr;}
+  .pq-grid{grid-template-columns:repeat(3,1fr);}
+  .proceso-steps{grid-template-columns:repeat(4,1fr);}
+  .cta-inner{grid-template-columns:1fr 1fr;}
+}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-card{display:none;}
+  .quehace-grid{grid-template-columns:1fr;}
+  .pq-grid{grid-template-columns:1fr;}
+  .proceso-steps{grid-template-columns:1fr 1fr;gap:32px;}
+  .proceso-steps::before{display:none;}
+  .cta-inner{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo">LEGAL<em>4</em>START</a>
+  <div class="nav-links">
+    <a href="#que-hace">Qué hacemos</a>
+    <a href="#para-quien">Para quién</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a href="#contacto" class="nav-cta">Agendar reunión →</a>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hbs1 hero-bg-shape"></div>
+  <div class="hbs2 hero-bg-shape"></div>
+  <div class="hbs3 hero-bg-shape"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Asesoría Legal para Startups &amp; Emprendedores</div>
+      <h1 class="hero-headline">
+        Fundar las bases.<br>
+        <span class="hl">Planear la estrategia.</span><br>
+        <span class="hl2">Crecer sin límite.</span>
+      </h1>
+      <p class="hero-sub">
+        Founders y emprendedores que construyen con propósito merecen bases legales sólidas, estrategia clara y un equipo legal que entienda su modelo de negocio. Eso es Legal4Start.
+      </p>
+      <div class="hero-pills">
+        <div class="pill accent">Estructuración corporativa</div>
+        <div class="pill">Propiedad intelectual</div>
+        <div class="pill">Contratos</div>
+        <div class="pill">Due Diligence</div>
+        <div class="pill">Compliance</div>
+      </div>
+      <a href="#contacto" class="hero-btn">Agendar reunión →</a>
+    </div>
+
+    <div class="hero-card">
+      <div class="hcard-label">Legal4Start en números</div>
+      <div class="hcard-stat">
+        <span class="stat-num">+40</span>
+        <span class="stat-label">proyectos acompañados</span>
+      </div>
+      <div class="hcard-stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">áreas de especialización</span>
+      </div>
+      <div class="hcard-divider"></div>
+      <div class="hcard-item">Estructuración y constitución de sociedades</div>
+      <div class="hcard-item">Estrategia de propiedad intelectual</div>
+      <div class="hcard-item">Contratos</div>
+      <div class="hcard-item">Due diligence para inversión</div>
+      <div class="hcard-item">Compliance regulatorio</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ HACE -->
+<section id="que-hace" class="section">
+  <div class="section-inner">
+    <div class="sec-label">Lo que hacemos juntos</div>
+    <h2 class="sec-title">Creamos espacios para<br>oportunidades.</h2>
+    <p class="sec-intro">Sentar bases sólidas para que el proyecto crezca y se expanda requiere de claridad y planificación. Ahí es donde LEGAL4START diseña una estrategia para cada etapa y la ejecuta.</p>
+
+    <div class="quehace-grid">
+      <div class="qh-card">
+        <div class="qh-icon">🏛️</div>
+        <div class="qh-name">Estructuración corporativa</div>
+        <div class="qh-items">
+          <div class="qh-item">Constitución de sociedades (SRL, SA, SAS)</div>
+          <div class="qh-item">Acuerdo de socios</div>
+          <div class="qh-item">Gobierno corporativo y estatutos</div>
+        </div>
+      </div>
+
+      <div class="qh-card blue">
+        <div class="qh-icon">💡</div>
+        <div class="qh-name">Propiedad intelectual</div>
+        <div class="qh-items">
+          <div class="qh-item">Estrategia de marca: registro, DDJJ, vistas (INPI)</div>
+          <div class="qh-item">Contratos de licencia y transferencia</div>
+          <div class="qh-item">Protección de software y know-how</div>
+        </div>
+      </div>
+
+      <div class="qh-card dual">
+        <div class="qh-icon">📄</div>
+        <div class="qh-name">Contratos estratégicos</div>
+        <div class="qh-items">
+          <div class="qh-item">Contratos con clientes, proveedores y partners</div>
+          <div class="qh-item">Términos &amp; condiciones · Políticas de privacidad</div>
+          <div class="qh-item">NDAs (Acuerdos de confidencialidad) · Contratos laborales y con freelancers</div>
+        </div>
+      </div>
+
+      <div class="qh-card">
+        <div class="qh-icon">📈</div>
+        <div class="qh-name">Due Diligence</div>
+        <div class="qh-items">
+          <div class="qh-item">Due diligence legal (como startup o inversor)</div>
+          <div class="qh-item">Preparación legal para rondas de inversión</div>
+        </div>
+      </div>
+
+      <div class="qh-card dark">
+        <div class="qh-icon">🔒</div>
+        <div class="qh-name">Compliance &amp; Regulatorio</div>
+        <div class="qh-items">
+          <div class="qh-item">Análisis regulatorio UIF y BCRA</div>
+          <div class="qh-item">Compliance para Fintech</div>
+          <div class="qh-item">Protección de datos personales (PDPA)</div>
+        </div>
+      </div>
+
+      <div class="qh-card blue">
+        <div class="qh-icon">🌍</div>
+        <div class="qh-name">Expansión internacional</div>
+        <div class="qh-items">
+          <div class="qh-item">Sociedades en Chile, México, España, Italia, EEUU</div>
+          <div class="qh-item">PI internacional: marcas y contratos cross-border</div>
+          <div class="qh-item">Contratos con colaboradores en otros países</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section id="para-quien" class="section alt">
+  <div class="section-inner">
+    <div class="sec-label">¿En qué momento nos sumamos?</div>
+    <h2 class="sec-title">Desde el día cero<br>y en cada paso del camino</h2>
+    <p class="sec-intro">Todo empieza con crear una base sólida: elegir la estructura jurídica correcta, reglas claras en el equipo y la protección del proyecto.</p>
+
+    <div class="pq-grid">
+      <div class="pq-card">
+        <div class="pq-num">01</div>
+        <div class="pq-title">El comienzo: la base de todo</div>
+        <div class="pq-desc">Founders que arrancan necesitan estructura desde el día uno: sociedad, acuerdo de socios, roles del equipo y marca registrada.</div>
+      </div>
+      <div class="pq-card">
+        <div class="pq-num">02</div>
+        <div class="pq-title">El día a día: respaldo constante</div>
+        <div class="pq-desc">Contratos, consultas, decisiones estratégicas — los equipos emprendedores necesitan respaldo legal claro y rápido en cada movimiento del negocio.</div>
+      </div>
+      <div class="pq-card">
+        <div class="pq-num">03</div>
+        <div class="pq-title">El crecimiento: escalar con estructura</div>
+        <div class="pq-desc">Cuando el proyecto crece, los desafíos legales cambian. Nuevos mercados, nuevos socios, nuevas rondas — con estrategia legal pensada para el largo plazo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso" class="section">
+  <div class="section-inner">
+    <div class="sec-label">Cómo trabajamos</div>
+    <h2 class="sec-title">Analizar el modelo de negocios,<br>la dinámica del equipo<br>y los objetivos del proyecto.</h2>
+    <p class="sec-intro"></p>
+
+    <div class="proceso-steps">
+      <div class="paso">
+        <div class="paso-num">01</div>
+        <div class="paso-title">Primera reunión</div>
+        <div class="paso-desc">Conocemos el proyecto, el equipo y los objetivos. Sin formularios, sin vueltas.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">02</div>
+        <div class="paso-title">Diagnóstico legal</div>
+        <div class="paso-desc">Identificamos los riesgos, necesidades y prioridades legales del momento actual.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">03</div>
+        <div class="paso-title">Estrategia a medida</div>
+        <div class="paso-desc">Diseñamos un plan legal alineado con el modelo de negocio y la etapa del proyecto.</div>
+      </div>
+      <div class="paso">
+        <div class="paso-num">04</div>
+        <div class="paso-title">Ejecución y acompañamiento</div>
+        <div class="paso-desc">Implementamos, documentamos y seguimos junto al equipo en cada paso siguiente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-eyebrow">El próximo paso es tuyo</div>
+      <h2 class="cta-headline">Agendá una reunión<br>y <span class="hl">empecemos a construir.</span></h2>
+      <p class="cta-sub">Contanos el proyecto y definimos juntos la estrategia legal para hacerlo crecer.</p>
+    </div>
+    <div class="cta-box">
+      <div class="cta-contact-item">
+        <div class="cta-icon">✉️</div>
+        <div>
+          <div class="cta-contact-label">Email</div>
+          <a href="mailto:mjlaciar@gmail.com" class="cta-contact-value">mjlaciar@gmail.com</a>
+        </div>
+      </div>
+      <div class="cta-contact-item">
+        <div class="cta-icon">💼</div>
+        <div>
+          <div class="cta-contact-label">LinkedIn</div>
+          <a href="https://linkedin.com/in/mariajoselaciar" target="_blank" class="cta-contact-value">María José Laciar</a>
+        </div>
+      </div>
+      <div class="cta-btn-wrap">
+        <a href="mailto:mjlaciar@gmail.com" class="cta-btn">Escribir ahora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">LEGAL<em>4</em>START</div>
+  <div class="footer-tagline">Bases sólidas para proyectos con propósito · María José Laciar</div>
+</footer>
+
+</body>
+</html>

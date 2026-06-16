@@ -1,0 +1,1 @@
+<iframe src="https://claude.site/public/artifacts/da65b95d-c060-4f6d-83f2-55df9e3378ad/embed" title="legal4start.html" width="100%" height="600" frameborder="0" allow="clipboard-write" allowfullscreen></iframe>
